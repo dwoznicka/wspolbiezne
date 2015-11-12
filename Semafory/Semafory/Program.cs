@@ -30,7 +30,7 @@ namespace Semafory
                     if (log.indexY == -1)
                         log.temp = log.FindOddNumberInY();
                 }
-                Thread.Sleep(300);
+                Thread.Sleep(100);
                 Console.WriteLine("{0} is leaving the semaphore", Thread.CurrentThread.Name);
                 sem.Release();
             }
