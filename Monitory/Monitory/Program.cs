@@ -14,7 +14,6 @@ namespace Monitory
         static void Main(string[] args)
         {
             int counter = -1;
-            Semaphore semaphore = new Semaphore(1,1);
             Logic logic = new Logic();
             logic.TakeNumbers(out logic.liczbaFryzjerow, out logic.liczbaManikiurzystek, out logic.pojemnoscPoczekalni);
             Console.WriteLine("Licbza fryzjerów: " + logic.liczbaFryzjerow);
