@@ -32,8 +32,6 @@ namespace Monitory
 
         public void TakeClient(Client client)
         {
-            bool freeBarber = false;
-            bool freeManicurist = false;
             bool wantManicure = client.manicure_wanted;
             bool entered = false;
 
@@ -44,8 +42,8 @@ namespace Monitory
                 ClientLeaves(out client);
             }
 
-            CheckClientsForBarber();
             CheckClientsForManicure();
+            CheckClientsForBarber();
         }
 
         public void ClientLeaves(out Client client)
@@ -171,7 +169,7 @@ namespace Monitory
             {
                 foreach(Client c in clients_at_barber)
                 {
-                    if(c.manicure_wanted && !c.manicure_done)
+                    if(c.manicure_wanted && !c.manicure_done && !c.manicure_in_progress)
                     {
                         Console.WriteLine("Klient " + c.name + " jest w trakcie strzyżenia i chce otrzymać manicure.");
                         CheckManicurist(c);
@@ -200,7 +198,7 @@ namespace Monitory
             {
                 foreach(Client c in clients_at_manicurist)
                 {
-                    if(!c.haircut_done)
+                    if(!c.haircut_done && !c.haircut_in_progress)
                     {
                         Console.WriteLine("Klient " + c.name + " jest w trakcie manicure i potrzebuje strzyżenia.");
                         CheckBarbers(c);

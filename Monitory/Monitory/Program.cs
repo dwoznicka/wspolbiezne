@@ -14,7 +14,6 @@ namespace Monitory
         static void Main(string[] args)
         {
             int counter = -1;
-            Semaphore semaphore = new Semaphore(1,1);
             Logic logic = new Logic();
             logic.TakeNumbers(out logic.liczbaFryzjerow, out logic.liczbaManikiurzystek, out logic.pojemnoscPoczekalni);
             Console.WriteLine("Licbza fryzjerów: " + logic.liczbaFryzjerow);
@@ -42,7 +41,11 @@ namespace Monitory
         private static void CreateClient(Boss boss, int counter)
         {
             Client client = new Client(counter);
-            Console.WriteLine("Przybył klient " + client.name);
+            if(client.manicure_wanted)
+                Console.WriteLine("Przybył klient " + client.name + " na strzyżenie i manicure");
+            else
+                Console.WriteLine("Przybył klient " + client.name + " tylko na strzyżenie");
+
             boss.TakeClient(client);
         }        
     }
