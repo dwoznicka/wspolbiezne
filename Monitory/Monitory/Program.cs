@@ -41,7 +41,11 @@ namespace Monitory
         private static void CreateClient(Boss boss, int counter)
         {
             Client client = new Client(counter);
-            Console.WriteLine("Przybył klient " + client.name);
+            if(client.manicure_wanted)
+                Console.WriteLine("Przybył klient " + client.name + " na strzyżenie i manicure");
+            else
+                Console.WriteLine("Przybył klient " + client.name + " tylko na strzyżenie");
+
             boss.TakeClient(client);
         }        
     }

@@ -16,6 +16,9 @@ namespace Monitory
         public bool manicure_done = false;
         public int name;
         
+        //Thread haircut;
+        //Thread manicure;
+
         public Client(int _name)
         {
             name = _name;
@@ -38,6 +41,7 @@ namespace Monitory
             Random rand = new Random();
             int time = rand.Next(1000, 3001);
             Console.WriteLine("Strzyzenie bedzie trwac " + time / 100 + " minut");
+            haircut_in_progress = true;
             Thread.Sleep(time);
             Console.WriteLine("Fryzjer " + this.name + " koniec strzyżenia.");
             haircut_done = true;
@@ -52,6 +56,7 @@ namespace Monitory
            // manicure.Start();
 
             Console.WriteLine("Manicure trwa 15 minut.");
+            manicure_in_progress = true;
             Thread.Sleep(1500);
             Console.WriteLine("Manikurzystka " + this.name + "koniec manicure.");
             manicure_done = true;
