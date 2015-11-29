@@ -177,7 +177,7 @@ namespace Monitory
                     }
                 }
             }
-            else if(waiting_room.Count > 0)
+            if(waiting_room.Count > 0)
             {
                 foreach (Client c in waiting_room)
                 {
@@ -206,7 +206,7 @@ namespace Monitory
                     }
                 }
             }
-            else if (waiting_room.Count > 0)
+            if (waiting_room.Count > 0)
             {
                 foreach (Client c in waiting_room)
                 {
